@@ -24,18 +24,11 @@ echo $fileform['tmp_name'];
 }
 
 if(isset($_POST['start'])){
-    // if(isset($_POST['start'])){
         $start= $_POST['start'];
-
-    // }
-    // else{
-    //     $start=1;
-    // }
     $start= ($start-1)*5;
 $query="select * from studentinfo where softdel=0 order by id desc limit $start,5";
 
 $run= mysqli_query($con,$query);
-// $index=1;
 $view="";
 $view.="
 <table class='table table-bordered table-striped table-condensed text-center mx-auto'>
@@ -81,16 +74,6 @@ $run1= mysqli_query($con,"select * from studentinfo where softdel=0");
 
 $pcount= mysqli_num_rows($run1);
 $pindex= ceil($pcount/5);
-// $view.="<div>";
-
-// for($i=1;$i<=$pindex;$i++){
-//     $view.=" 
-//     <button class='cindex'>$i</button>"
-//     ;
-
-// }
-
-// $view.="</div>";
 $response= array(
     'html'=>$view,
     'pindex'=>$pindex
@@ -146,7 +129,6 @@ if (!empty($_FILES['fileform100']) && is_uploaded_file($_FILES['fileform100']['t
               `section`='$selectid1',`email`='$emaiform1',`proof`='$folder' WHERE `id`='$idform1' ";
     mysqli_query($con, $query);
     move_uploaded_file($tmp, $folder);
-    // echo folder;
 } else {
     // Handle the case where 'fileform100' is not set or no file was uploaded
     $query = "UPDATE `studentinfo` SET `name`='$nameform1',`lastname`='$lastnameform1',`age`='$birthform1',`contact`='$contactform1',

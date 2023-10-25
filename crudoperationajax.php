@@ -53,7 +53,6 @@ if(!$con){
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <!-- <form enctype="multipart/form-data"> -->
 
                             <div class="modal-body">
                                 <div class="form-group form-check">
